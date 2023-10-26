@@ -1,0 +1,23 @@
+<template>
+  <el-form-item :label="item.label" :label-width="item.labelWidth">
+    <el-input v-model="item.value" type="textarea" @input="changValue"/>
+  </el-form-item>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const props = defineProps({
+  item: {}
+})
+const emits = defineEmits<{
+  (e: 'changeValue', data: any): void
+}>()
+const changValue = (val: string) => {
+  emits('changeValue', props.item)
+}
+</script>
+
+<style scoped>
+
+</style>
